@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Initial Demonstration: High-Resolution Weather Uncertainty Estimation | WEU Lab</title>
+<meta content="WEU Lab initial demonstration of high-resolution 2-m temperature uncertainty estimation over the Denver-Boulder area using operational NOAA forecast data." name="description"/>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .article-page h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .article-page h2 {
+      font-size: 1.5rem;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    .article-date {
+      margin: 0 0 2rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      font-weight: 400;
+      color: #66788a;
+    }
+
+    .article-page p,
+    .article-page figcaption {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .article-page strong,
+    .article-page b {
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+<div class="container nav-inner">
+<a class="brand" href="../index.html">WEU Lab</a>
+<div class="nav-links">
+<a href="../index.html">About WEU Lab</a>
+<a class="active" href="../blog.html">Blog</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+</nav>
+<main class="container article-page">
+<article>
+<h1>Initial Demonstration: High-Resolution Weather Uncertainty Estimation</h1>
+<p class="article-date">2026.09.27</p>
+<p>Weather forecasts are inherently uncertain, and understanding that uncertainty can be especially important for extreme weather, hazards, and weather-sensitive decision making. As an initial demonstration, WEU Lab is developing an ensemble weather estimation system that uses operational high-resolution forecast data from the U.S. National Oceanic and Atmospheric Administration (NOAA) to characterize weather uncertainty at local scales.</p>
+
+<p>Our first demonstration focuses on 2-meter temperature uncertainty across the Denver–Boulder area of Colorado. Rather than providing only a single forecast, the system summarizes the ensemble using the 10th percentile (P10), ensemble mean, and 90th percentile (P90) at approximately 1-km spatial resolution. The P10–P90 range provides an intuitive view of the range of temperature outcomes represented by the ensemble. Because the system is built upon operational forecast data, these uncertainty estimates can be generated in near real time, with forecast uncertainty available at 15-minute intervals for the next three hours and potentially longer. The same framework can also be applied retrospectively to investigate historical weather events and their associated uncertainty.</p>
+
+<p>Although the current demonstration uses a 1-km grid over the Denver–Boulder region, the framework is designed to be flexible. The spatial grid can potentially be refined to hundreds of meters, including approximately 100 m, and the approach can be applied to other locations across the United States.</p>
+<h2>Example: 15-minute evolution of temperature uncertainty</h2>
+<p>
+        The sequence below illustrates how the estimated temperature distribution evolves at 15-minute intervals. Each time step shows the 10th percentile (P10), ensemble mean, and 90th percentile (P90), providing a high-resolution view of both the expected temperature pattern and the range represented by the ensemble.
+      </p>
+<figure>
+<img alt="2-m temperature ensemble forecast summary valid 2026-09-12 23:15 UTC" src="../images/001/temp2m_ens_summary_valid_20260912_2315.png" style="width:100%; height:auto;"/>
+<figcaption>23:15 UTC : 10th percentile (P10), ensemble mean, and 90th percentile (P90) 2-m temperature.</figcaption>
+</figure>
+<figure>
+<img alt="2-m temperature ensemble forecast summary valid 2026-09-12 23:30 UTC" src="../images/001/temp2m_ens_summary_valid_20260912_2330.png" style="width:100%; height:auto;"/>
+<figcaption>23:30 UTC : 15 minutes later.</figcaption>
+</figure>
+<figure>
+<img alt="2-m temperature ensemble forecast summary valid 2026-09-12 23:45 UTC" src="../images/001/temp2m_ens_summary_valid_20260912_2345.png" style="width:100%; height:auto;"/>
+<figcaption>23:45 UTC.</figcaption>
+</figure>
+<figure>
+<img alt="2-m temperature ensemble forecast summary valid 2026-09-13 00:00 UTC" src="../images/001/temp2m_ens_summary_valid_20260913_0000.png" style="width:100%; height:auto;"/>
+<figcaption>00:00 UTC.</figcaption>
+</figure>
+<figure>
+<img alt="2-m temperature ensemble forecast summary valid 2026-09-13 00:15 UTC" src="../images/001/temp2m_ens_summary_valid_20260913_0015.png" style="width:100%; height:auto;"/>
+<figcaption>00:15 UTC.</figcaption>
+</figure>
+<figure>
+<img alt="2-m temperature ensemble forecast summary valid 2026-09-13 00:30 UTC" src="../images/001/temp2m_ens_summary_valid_20260913_0030.png" style="width:100%; height:auto;"/>
+<figcaption>00:30 UTC.</figcaption>
+</figure>
+<figure>
+<img alt="2-m temperature ensemble forecast summary valid 2026-09-13 00:45 UTC" src="../images/001/temp2m_ens_summary_valid_20260913_0045.png" style="width:100%; height:auto;"/>
+<figcaption>00:45 UTC.</figcaption>
+</figure>
+<figure>
+<img alt="2-m temperature ensemble forecast summary valid 2026-09-13 01:00 UTC" src="../images/001/temp2m_ens_summary_valid_20260913_0100.png" style="width:100%; height:auto;"/>
+<figcaption>01:00 UTC : the eighth consecutive 15-minute forecast time shown in this sequence.</figcaption>
+</figure>
+<h2>What's next?</h2>
+<p>We plan to expand the demonstration beyond temperature to additional weather variables and hazards, including precipitation and fog, with longer-term exploration of applications related to tornadoes and flooding. We also plan to explore data assimilation, including Ensemble Kalman Filter (EnKF) approaches, to incorporate local observations and update high-resolution weather uncertainty estimates at much higher frequencies, potentially every five minutes or even more frequently as new observations become available.</p>
+
+<p>Potential observations include surface weather stations, radar and satellite observations, and measurements collected by moving vehicles. By combining high-resolution ensemble forecasts with frequently updated local observations, the system could continually refresh its representation of local weather conditions and their uncertainty. This initial temperature demonstration is a first step toward WEU Lab's broader goal: providing high-resolution, frequently updated weather uncertainty information for extreme weather, hazards, and decision making.</p>
+
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>Weather Extremes &amp; Uncertainty Lab</p>
+</div>
+</footer>
+</body>
+</html>
